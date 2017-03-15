@@ -15,6 +15,7 @@ class MainView extends Component {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/artists">Artists (placeholder)</Link></li>
+            <li><Link to="/apitest">API TEST</Link></li>
             </ul>
             </nav>
             </article>
