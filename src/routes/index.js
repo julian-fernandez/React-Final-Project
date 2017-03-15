@@ -4,6 +4,8 @@ import MainView from './mainView/mainView';
 import HomeView from './homeView/homeView';
 import AboutView from './aboutView/aboutView';
 import ArtistsView from './artistsView/artistsView';
+import BandView from './bandView/bandView';
+import AlbumView from './albumView/albumView';
 
 const getRoutes = function() {
 	return (
@@ -13,6 +15,8 @@ const getRoutes = function() {
 		<Route exact path="/" component={HomeView} />
 		<Route path="/about" component={AboutView} />
 		<Route path="/artists" component={ArtistsView} />
+		<Route path="/kyuss" component={BandView} />
+		<Route path="/bluesfortheredsun" component={AlbumView} />
 		</Switch>
 		</div>
 		)
