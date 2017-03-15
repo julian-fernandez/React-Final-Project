@@ -1,0 +1,40 @@
+article.home-view{
+	max-width:1200px;
+	margin: 0 auto;
+}
+
+.artistbox{
+	border: 1px solid #ccc;
+	padding:10px;
+	padding-bottom:5px;
+	box-sizing:border-box;
+	margin-top:30px;
+}
+
+.artistbox img{
+	display:inline-block;
+	max-width:120px;
+	margin-right:50px;
+
+}
+
+.artistbox h4{
+	display:inline-block;
+	font-size:28px;
+	vertical-align:top;
+}
+
+.band-image{
+	display:inline;
+	margin-right:50px;
+	margin-bottom:30px;
+}
+
+.band-info{
+	display:inline-block;
+	vertical-align:top;
+}
+
+.band-info p{
+	font-size:18px;
+}
