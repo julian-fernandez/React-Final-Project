@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import MainView from './mainView/mainView';
 import HomeView from './homeView/homeView';
 import AboutView from './aboutView/aboutView';
+import ArtistsView from './artistsView/artistsView';
 
 const getRoutes = function() {
 	return (
@@ -11,9 +12,10 @@ const getRoutes = function() {
 		<Switch>
 		<Route exact path="/" component={HomeView} />
 		<Route path="/about" component={AboutView} />
+		<Route path="/artists" component={ArtistsView} />
 		</Switch>
 		</div>
 		)
-	};
+};
 
-	export default getRoutes;
+export default getRoutes;

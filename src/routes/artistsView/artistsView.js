@@ -1,17 +1,18 @@
-import './homeView.css';
+import './artistsView.css';
 import React, { Component } from 'react';
-import SearchForm from './components/input';
 
-class HomeView extends Component {
+class ArtistsView extends Component {
 	render() {
 		return (
 			<article className="home-view">
 			<h4>Search results</h4>
-			<h1>Artists</h1>
+			<h1>You searched for: <strong>Kyuss</strong></h1>
+			<hr/>
+			<p>text</p>
 			</article>
 
 			);
 	}
 }
 
-export default HomeView;
+export default ArtistsView;
