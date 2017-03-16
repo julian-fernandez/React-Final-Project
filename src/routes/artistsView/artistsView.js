@@ -12,10 +12,10 @@ class ArtistsView extends Component {
 			<br/>
 			<span> Home > Artists </span>
 			<hr/>
-			< ArtistBox/>
-			< ArtistBox/>
-			< ArtistBox/>
-			< ArtistBox/>
+			<ArtistBox/>
+			<ArtistBox/>
+			<ArtistBox/>
+			<ArtistBox/>
 			</article>
 
 			);

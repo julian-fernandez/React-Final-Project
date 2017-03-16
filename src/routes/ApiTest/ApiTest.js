@@ -1,19 +1,18 @@
-import './homeView.css';
+import './ApiTest.css';
 import React, { Component } from 'react';
 import SearchForm from './components/input';
 
-class HomeView extends Component {
-
+class ApiTest extends Component {
 	render() {
 		return (
 			<article className="home-view">
 			<h4>Welcome to</h4>
-			<h1>Spotisearch</h1>
-			<SearchForm ref='foo'/>
+			<h1>APITEST</h1>
+			< SearchForm/>
 			</article>
+
 			);
 	}
-
 }
 
-export default HomeView;
+export default ApiTest;

@@ -1,0 +1,12 @@
+article.home-view{
+	max-width:1200px;
+	margin: 0 auto;
+}
+
+.artist-list{
+	font-size:25px;
+}
+
+.artist-list li{
+	display:block;
+}

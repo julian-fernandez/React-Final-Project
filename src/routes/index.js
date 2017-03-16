@@ -6,6 +6,7 @@ import AboutView from './aboutView/aboutView';
 import ArtistsView from './artistsView/artistsView';
 import BandView from './bandView/bandView';
 import AlbumView from './albumView/albumView';
+import ApiTest from './ApiTest/ApiTest';
 
 const getRoutes = function() {
 	return (
@@ -17,6 +18,7 @@ const getRoutes = function() {
 		<Route path="/artists" component={ArtistsView} />
 		<Route path="/kyuss" component={BandView} />
 		<Route path="/bluesfortheredsun" component={AlbumView} />
+		<Route path="/apitest" component={ApiTest} />
 		</Switch>
 		</div>
 		)
