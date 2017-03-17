@@ -2,9 +2,14 @@ import './mainView.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import SearchForm from '../homeView/components/input.js';
 
 class MainView extends Component {
+
     render() {
+
+
+
         return (
             <article className="main-view">
             <header className="main-view__header">
@@ -17,7 +22,11 @@ class MainView extends Component {
             <li><Link to="/artists">Artists (placeholder)</Link></li>
             <li><Link to="/apitest">API TEST</Link></li>
             </ul>
+            <div>
+            
+            </div>
             </nav>
+
             </article>
             );
     }
