@@ -5,11 +5,12 @@
 	padding-bottom:5px;
 	box-sizing:border-box;
 	margin-top:30px;
+	min-height:150px;
 }
 
 .artistbox img{
 	display:inline-block;
-	max-width:120px;
+	max-width:150px;
 	margin-right:25px;
 
 }

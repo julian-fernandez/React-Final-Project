@@ -50,20 +50,28 @@ class SearchForm extends React.Component {
     })
     .then( function(response) {
       let bandlist = [];
-      let logos = [];
+      let logoslist = [];
       let testlog = response.artists.items[2].images[0].url;
       console.log(testlog);
       for (var i = 0; i < response.artists.items.length; i++) {
         var counter = response.artists.items[i].name;
         bandlist.push(counter);
       }
-      for (var i = 0; i < response.artists.items.length; i++) {
-        var imgs = response.artists.items[i].images[0];
-        console.log(imgs);
+      for (var j = 0; j < response.artists.items.length; j++) {
+        if (response.artists.items[j].images[0]){
+          console.log("existe la " + j);
+          var imgs = response.artists.items[j].images[0].url;
+          logoslist.push(imgs);
+        }
+        else{
+          imgs = "http://placehold.it/150x150";
+          logoslist.push(imgs);
+        }
+
       }
       main.setState({
         name: bandlist,
-        logos: logos
+        logos: logoslist
       });
     })
     .catch( function(response) {
@@ -76,22 +84,34 @@ class SearchForm extends React.Component {
   render() {
     const { 
      name,
-     logos,
-     infoStatus 
+     logos
    } = this.state;
    let data = null;
-   if (infoStatus == 'loaded') {
-    console.log("LARGO: " + this.state.name.length);
-  }
-  return (
+   console.log("LARGO: " + this.state.name.length);
+   var self = this;
+   var items = this.state.name.map(function(item, key){
+    return (<div className="column half"><div className="artistbox">
+
+      <img src={logos[key]}/>
+      <a href="/kyuss"><h4>{name[key]}</h4></a> 
+      </div></div>);
+  });
+   return(
+    <div>
+    {items}
+    </div>
+    )
+/*
+   return (
+
     <div>
     {name.map(function(name, index){
-      return <div className="column half" key={ index }><div className="artistbox"><img src="http://placehold.it/150x150"/><h4><a href="/kyuss">{name}</a></h4></div></div>;
+      return <div className="column half" key={index}><div className="artistbox"><img src={logos}/><h4><a href="/kyuss">{name}</a></h4></div></div>;
     })}
     </div>
 
-    );
-}
+    ); */
+  }
 }
 
 export default SearchForm;
