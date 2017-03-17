@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ArtistBox from './ArtistBox';
+
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -7,6 +9,7 @@ class SearchForm extends React.Component {
     this.state = {
       searchTerm: "Kyuss",
       name: [],
+      logos:[],
       infoStatus: undefined
     };
   };
@@ -15,14 +18,13 @@ class SearchForm extends React.Component {
     name: 'Kyuss',
   };
   componentWillMount() {
-    this.getInputInfo();
+    var localinput = localStorage.getItem( 'searchinput' );
+    let searchterm = localinput;
+    console.log("El coso se llama " + searchterm);
+    this.getInputInfo(searchterm);
   };
   handleSubmit(event) {
     event.preventDefault();
-    let searchterm = this.input.value;
-    this.getInputInfo(searchterm);
-    localStorage.setItem("searchinput", searchterm);
-    window.location.href = 'http://localhost:3000/artists';
   }
   getData(){
     return this.state;
@@ -43,28 +45,25 @@ class SearchForm extends React.Component {
     }
     fetch(`https://api.spotify.com/v1/search?type=artist&q=artist:${query}`)
     .then( function(response) {
+      console.log("respondió");
       return response.json();
     })
     .then( function(response) {
-      console.log("Made it!!!");
-      for (var i = 0; i < response.artists.items.length; i++) {
-        var counter = response.artists.items[i];
-      }
-      setTimeout( function() {
-        main.setState({
-          infoStatus: 'loaded'
-        });
-      }, 300);
-      return response;
-    })
-    .then( function(response) {
       let bandlist = [];
+      let logos = [];
+      let testlog = response.artists.items[2].images[0].url;
+      console.log(testlog);
       for (var i = 0; i < response.artists.items.length; i++) {
         var counter = response.artists.items[i].name;
         bandlist.push(counter);
       }
+      for (var i = 0; i < response.artists.items.length; i++) {
+        var imgs = response.artists.items[i].images[0];
+        console.log(imgs);
+      }
       main.setState({
-        name: bandlist
+        name: bandlist,
+        logos: logos
       });
     })
     .catch( function(response) {
@@ -77,6 +76,7 @@ class SearchForm extends React.Component {
   render() {
     const { 
      name,
+     logos,
      infoStatus 
    } = this.state;
    let data = null;
@@ -85,19 +85,11 @@ class SearchForm extends React.Component {
   }
   return (
     <div>
-    <form onSubmit={this.handleSubmit}>
-    <label>
-    Name:
-    <input type="text" ref={(input) => this.input = input} />
-    </label>
-    <input type="submit" value="Submit" />
-    </form>
-    <ul className="artist-list">
     {name.map(function(name, index){
-      return <li key={ index }><a href="/artists">{name}</a></li>;
+      return <div className="column half" key={ index }><div className="artistbox"><img src="http://placehold.it/150x150"/><h4><a href="/kyuss">{name}</a></h4></div></div>;
     })}
-    </ul>
     </div>
+
     );
 }
 }

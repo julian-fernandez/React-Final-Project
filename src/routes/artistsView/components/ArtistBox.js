@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ArtistBox.css';
+import './RenderBox.js';
 
 class ArtistBox extends React.Component {
   constructor(props) {

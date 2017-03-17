@@ -15,7 +15,8 @@
 }
 
 .artistbox h4{
-	display:inline-block;
-	font-size:28px;
-	vertical-align:top;
+	display: inline-block;
+	font-size: 28px;
+	vertical-align: top;
+	max-width: 70%;
 }
