@@ -57,49 +57,44 @@ class SearchForm extends React.Component {
       }, 300);
       return response;
     })
-    .then( function(response) {
-      let bandlist = [];
-      for (var i = 0; i < response.artists.items.length; i++) {
-        var counter = response.artists.items[i].name;
-        bandlist.push(counter);
+        .then( function(response) {
+          let bandlist = [];
+          for (var i = 0; i < response.artists.items.length; i++) {
+            var counter = response.artists.items[i].name;
+            bandlist.push(counter);
+          }
+          console.log("pushea3");
+          main.setState({
+            name: bandlist
+          });
+        })
+            .catch( function(response) {
+             main.setState({
+              infoStatus: 'error'
+            });
+           })
+          };
+
+          render() {
+            const { 
+             name,
+             infoStatus 
+           } = this.state;
+           let data = null;
+           if (infoStatus == 'loaded') {
+            console.log("LARGO: " + this.state.name.length);
+          }
+          return (
+            <div>
+            <form onSubmit={this.handleSubmit}>
+            <label>
+            <input type="text" ref={(input) => this.input = input} />
+            </label>
+            
+            </form>
+            </div>
+            );
+        }
       }
-      main.setState({
-        name: bandlist
-      });
-    })
-    .catch( function(response) {
-     main.setState({
-      infoStatus: 'error'
-    });
-   })
-  };
 
-  render() {
-    const { 
-     name,
-     infoStatus 
-   } = this.state;
-   let data = null;
-   if (infoStatus == 'loaded') {
-    console.log("LARGO: " + this.state.name.length);
-  }
-  return (
-    <div>
-    <form onSubmit={this.handleSubmit}>
-    <label>
-    Name:
-    <input type="text" ref={(input) => this.input = input} />
-    </label>
-    <input type="submit" value="Submit" />
-    </form>
-    <ul className="artist-list">
-    {name.map(function(name, index){
-      return <li key={ index }><a href="/artists">{name}</a></li>;
-    })}
-    </ul>
-    </div>
-    );
-}
-}
-
-export default SearchForm;
+      export default SearchForm;
