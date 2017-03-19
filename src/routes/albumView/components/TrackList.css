@@ -20,3 +20,7 @@
 	background-color:#515151;
 	padding:10px;
 }
+
+.tracklist-box td p:hover{
+	cursor:pointer;
+}
