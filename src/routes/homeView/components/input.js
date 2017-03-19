@@ -5,15 +5,16 @@ class SearchForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      searchTerm: "Kyuss",
+      searchTerm: "noSearchTerm",
       name: [],
       infoStatus: undefined
     };
   };
 
   static defaultProps = {
-    name: 'Kyuss',
+    name: 'noSearchTerm',
   };
+
   componentWillMount() {
     this.getInputInfo();
   };
@@ -75,26 +76,28 @@ class SearchForm extends React.Component {
            })
           };
 
-          render() {
-            const { 
-             name,
-             infoStatus 
-           } = this.state;
-           let data = null;
-           if (infoStatus == 'loaded') {
-            console.log("LARGO: " + this.state.name.length);
-          }
-          return (
-            <div>
-            <form onSubmit={this.handleSubmit}>
-            <label>
-            <input type="text" ref={(input) => this.input = input} />
-            </label>
-            
-            </form>
-            </div>
-            );
-        }
-      }
+
+  render() {
+    const { 
+     name,
+     infoStatus 
+   } = this.state;
+   let data = null;
+  }
+  return (
+    <div id ="inputArtist" >
+    <h4> Search your favorite songs over Spotify, just enter an artist's name in the following search box and enjoy! </h4>
+    <form onSubmit={this.handleSubmit}>
+    <input type="text" id= "searchBoxArtist" placeholder="Type the name of your favorite artist" ref={(input) => this.input = input} />
+    </form>
+    <ul className="artist-list">
+    {name.map(function(name, index){
+      return <li key={ index }><a href="/artists">{name}</a></li>;
+    })}
+    </ul>
+    </div>
+    );
+}
+}
 
       export default SearchForm;
