@@ -11,10 +11,10 @@ class AlbumView extends Component {
 			<TrackList/>
 
 			</article>
-
-			);
-	}
-}
+		);
+	};
+	
+};
 
 export default AlbumView;
 

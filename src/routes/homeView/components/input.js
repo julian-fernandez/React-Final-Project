@@ -1,59 +1,43 @@
 import React, { Component } from 'react';
+import lupa from '../../../assets/lupa.png';
 
 class SearchForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {
-      searchTerm: "noSearchTerm",
-      name: [],
-      infoStatus: undefined
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {
+            searchTerm: "noSearchTerm",
+            name: [],
+            infoStatus: undefined
+        };
     };
-  };
 
-  static defaultProps = {
-    name: 'noSearchTerm',
-  };
+    static defaultProps = {
+        name: 'noSearchTerm',
+    };
 
-  componentWillMount() {
-    this.getInputInfo();
-  };
-  handleSubmit(event) {
-    event.preventDefault();
-    let searchterm = this.input.value;
-    this.getInputInfo(searchterm);
-    localStorage.setItem("searchinput", searchterm);
-    window.location.href = 'http://localhost:3000/artists';
-  }
-  getData(){
-    return this.state;
-  } 
-  getInputInfo(name){
-    console.log("Working with:" + name);
-    const main = this;
-    let query = null;
-    main.setState({
-      infoStatus: 'loading'
-    });
-    if (!name || name == '') {
-      query = this.props.name;
-      console.log("IF MALO" + query);
-    } else {
-      query = name;
-      console.log("IF BUENO" + query);
-    }
-    fetch(`https://api.spotify.com/v1/search?type=artist&q=artist:${query}`)
-    .then( function(response) {
-      return response.json();
-    })
-    .then( function(response) {
-      console.log("Made it!!!");
-      for (var i = 0; i < response.artists.items.length; i++) {
-        var counter = response.artists.items[i];
-      }
-      setTimeout( function() {
+    componentWillMount() {
+        this.getInputInfo();
+    };
+
+    handleSubmit(event) {
+        event.preventDefault();
+        let searchterm = this.input.value;
+        this.getInputInfo(searchterm);
+        localStorage.setItem("searchinput", searchterm);
+        window.location.href = 'http://localhost:3000/artists';
+    };
+
+    getData() {
+        return this.state;
+    };
+
+    getInputInfo(name) {
+        console.log("Working with:" + name);
+        const main = this;
+        let query = null;
         main.setState({
-          infoStatus: 'loaded'
+            infoStatus: 'loading'
         });
       }, 300);
       return response;

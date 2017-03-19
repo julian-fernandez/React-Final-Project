@@ -10,4 +10,4 @@ ReactDOM.render(
 	{getRoutes()}
 	</BrowserRouter>,
 	document.getElementById('root')
-	);
+);

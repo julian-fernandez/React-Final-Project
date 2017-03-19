@@ -7,9 +7,6 @@ import SearchForm from '../homeView/components/input.js';
 class MainView extends Component {
 
     render() {
-
-
-
         return (
             <article className="main-view">
             <header className="main-view__header">
@@ -19,13 +16,12 @@ class MainView extends Component {
             <ul>
             </ul>
             <div>
-            
             </div>
             </nav>
-
             </article>
-            );
-    }
-}
+        );
+    };
+    
+};
 
 export default MainView;
