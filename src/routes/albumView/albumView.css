@@ -13,7 +13,8 @@ article.home-view{
 
 .artistbox img{
 	display:inline-block;
-	max-width:120px;
+	max-width:150px;
+	max-height:150px;
 	margin-right:25px;
 
 }
@@ -22,4 +23,5 @@ article.home-view{
 	display:inline-block;
 	font-size:28px;
 	vertical-align:top;
+	max-width:100%;
 }

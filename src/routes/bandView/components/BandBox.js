@@ -28,6 +28,9 @@ class BandBox extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
   }
+  handleClick(event){
+    localStorage.setItem("albumid", event);
+  }
   getData(){
     return this.state;
   } 
@@ -129,7 +132,7 @@ class BandBox extends React.Component {
       <div className="artistbox">
       <img src={albumpics[key]}/>
       <div className="boxinfo">
-      <h4><a href="/albumview" id={albumids[key]}>{albumnames[key]}</a></h4>
+      <h4><a href="/albumview" id={albumids[key]} onClick={self.handleClick.bind(this, albumids[key])}>{albumnames[key]}</a></h4>
       <p>{albumyears[key]}</p>
       </div>
       </div>
@@ -146,7 +149,7 @@ class BandBox extends React.Component {
      <p>{genre}</p>
      </div>
      </div>
-     <span> Home > Artists > {name} </span>
+     <span> Home > <a href="/artists">Artists</a> > {name} </span>
      <hr/>
      {items}
      </div>

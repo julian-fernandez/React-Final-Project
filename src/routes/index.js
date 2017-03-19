@@ -17,7 +17,7 @@ const getRoutes = function() {
 		<Route path="/about" component={AboutView} />
 		<Route path="/artists" component={ArtistsView} />
 		<Route path="/bandview" component={BandView} />
-		<Route path="/bluesfortheredsun" component={AlbumView} />
+		<Route path="/albumview" component={AlbumView} />
 		<Route path="/apitest" component={ApiTest} />
 		</Switch>
 		</div>
