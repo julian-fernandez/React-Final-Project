@@ -15,11 +15,9 @@ input{
 	padding: 5px;
 	padding-left: 20px;
 	font-size: 22px;
-
-
+}
 
 #homeArticle{
-
 	margin-left: 300px;
 	margin-right: 300px;
 }
@@ -29,11 +27,20 @@ input{
 }
 
 #searchBoxArtist{
+	margin-left: 20px;
 	margin-top: 30px;
 	width: 800px;
 	height: 30px;
 	border-radius: 15px;
-	background-image:url(components/lupachica.jpg) no-repeat;
 	padding: 5px 5px 5px 35px;
+}
 
+.input_lupa{
+	padding-left: 100px;
+	margin-top: 10px;
+}
+
+#searchBoxLupa{
+	display: flex;
+  	flex-flow: row;
 }

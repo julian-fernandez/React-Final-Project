@@ -14,13 +14,12 @@ class AlbumView extends Component {
 			<br/>
 			<span> Home > Artists > Kyuss > Blues for the Red Sun </span>
 			<hr/>
-			< TrackList/>
-
+			<TrackList/>
 			</article>
-
-			);
-	}
-}
+		);
+	};
+	
+};
 
 export default AlbumView;
 
