@@ -58,22 +58,24 @@ class SearchForm extends React.Component {
       }, 300);
       return response;
     })
-    .then( function(response) {
-      let bandlist = [];
-      for (var i = 0; i < response.artists.items.length; i++) {
-        var counter = response.artists.items[i].name;
-        bandlist.push(counter);
-      }
-      main.setState({
-        name: bandlist
-      });
-    })
-    .catch( function(response) {
-     main.setState({
-      infoStatus: 'error'
-    });
-   })
-  };
+        .then( function(response) {
+          let bandlist = [];
+          for (var i = 0; i < response.artists.items.length; i++) {
+            var counter = response.artists.items[i].name;
+            bandlist.push(counter);
+          }
+          console.log("pushea3");
+          main.setState({
+            name: bandlist
+          });
+        })
+            .catch( function(response) {
+             main.setState({
+              infoStatus: 'error'
+            });
+           })
+          };
+
 
   render() {
     const { 
@@ -81,8 +83,6 @@ class SearchForm extends React.Component {
      infoStatus 
    } = this.state;
    let data = null;
-   if (infoStatus == 'loaded') {
-    console.log("LARGO: " + this.state.name.length);
   }
   return (
     <div id ="inputArtist" >
@@ -100,4 +100,4 @@ class SearchForm extends React.Component {
 }
 }
 
-export default SearchForm;
+      export default SearchForm;

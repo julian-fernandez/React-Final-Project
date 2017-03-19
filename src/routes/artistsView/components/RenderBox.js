@@ -9,6 +9,7 @@ class SearchForm extends React.Component {
     this.state = {
       searchTerm: "",
       name: [],
+      ids: [],
       logos:[],
       infoStatus: undefined
     };
@@ -23,6 +24,11 @@ class SearchForm extends React.Component {
     console.log("El coso se llama " + searchterm);
     this.getInputInfo(searchterm);
   };
+
+  handleClick(event){
+    console.log("EL EVENTO ES " + event)
+    localStorage.setItem("bandid", event);
+  }
   handleSubmit(event) {
     event.preventDefault();
   }
@@ -45,21 +51,21 @@ class SearchForm extends React.Component {
     }
     fetch(`https://api.spotify.com/v1/search?type=artist&q=artist:${query}`)
     .then( function(response) {
-      console.log("respondió");
+      console.log("respondió BandView");
       return response.json();
     })
     .then( function(response) {
       let bandlist = [];
       let logoslist = [];
-      let testlog = response.artists.items[2].images[0].url;
-      console.log(testlog);
+      let idslist = [];
+
       for (var i = 0; i < response.artists.items.length; i++) {
         var counter = response.artists.items[i].name;
+        console.log("la id es " + counter);
         bandlist.push(counter);
       }
       for (var j = 0; j < response.artists.items.length; j++) {
         if (response.artists.items[j].images[0]){
-          console.log("existe la " + j);
           var imgs = response.artists.items[j].images[0].url;
           logoslist.push(imgs);
         }
@@ -69,9 +75,15 @@ class SearchForm extends React.Component {
         }
 
       }
+      for (var k = 0; k < response.artists.items.length; k++) {
+        var addid = response.artists.items[k].id;
+        console.log("la id es " + response.artists.items[k].id);
+        idslist.push(addid);
+      }
       main.setState({
         name: bandlist,
-        logos: logoslist
+        logos: logoslist,
+        ids: idslist
       });
     })
     .catch( function(response) {
@@ -84,16 +96,17 @@ class SearchForm extends React.Component {
   render() {
     const { 
      name,
-     logos
+     logos,
+     ids
    } = this.state;
    let data = null;
-   console.log("LARGO: " + this.state.name.length);
+   console.log("LARGO: " + this.state.ids.length);
    var self = this;
    var items = this.state.name.map(function(item, key){
     return (<div className="column half"><div className="artistbox">
 
       <img src={logos[key]}/>
-      <a href="/kyuss"><h4>{name[key]}</h4></a> 
+      <a href="/bandview" id={ids[key]} onClick={self.handleClick.bind(this, ids[key])}><h4>{name[key]}</h4></a> 
       </div></div>);
   });
    return(
@@ -101,16 +114,6 @@ class SearchForm extends React.Component {
     {items}
     </div>
     )
-    /*
-    return (
-
-      <div>
-      {name.map(function(name, index){
-        return <div className="column half" key={index}><div className="artistbox"><img src={logos}/><h4><a href="/kyuss">{name}</a></h4></div></div>;
-      })}
-      </div>
-
-      ); */
     }
   }
 

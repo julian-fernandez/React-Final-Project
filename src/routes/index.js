@@ -16,7 +16,7 @@ const getRoutes = function() {
 		<Route exact path="/" component={HomeView} />
 		<Route path="/about" component={AboutView} />
 		<Route path="/artists" component={ArtistsView} />
-		<Route path="/kyuss" component={BandView} />
+		<Route path="/bandview" component={BandView} />
 		<Route path="/bluesfortheredsun" component={AlbumView} />
 		<Route path="/apitest" component={ApiTest} />
 		</Switch>

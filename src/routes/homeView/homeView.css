@@ -1,3 +1,21 @@
+article.home-view{
+	max-width:1200px;
+	margin: 0 auto;
+}
+
+input{
+	background-color: #333;
+	border: none;
+	width: 80%;
+	margin: auto;
+	display: block;
+	border: 1px solid #ddd;
+	border-radius: 50px;
+	color: white;
+	padding: 5px;
+	padding-left: 20px;
+	font-size: 22px;
+
 
 
 #homeArticle{
@@ -17,6 +35,5 @@
 	border-radius: 15px;
 	background-image:url(components/lupachica.jpg) no-repeat;
 	padding: 5px 5px 5px 35px;
-
 
 }
