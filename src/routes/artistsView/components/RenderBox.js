@@ -7,7 +7,7 @@ class SearchForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      searchTerm: "Kyuss",
+      searchTerm: "",
       name: [],
       logos:[],
       infoStatus: undefined
@@ -15,7 +15,7 @@ class SearchForm extends React.Component {
   };
 
   static defaultProps = {
-    name: 'Kyuss',
+    name: '',
   };
   componentWillMount() {
     var localinput = localStorage.getItem( 'searchinput' );
@@ -101,17 +101,17 @@ class SearchForm extends React.Component {
     {items}
     </div>
     )
-/*
-   return (
+    /*
+    return (
 
-    <div>
-    {name.map(function(name, index){
-      return <div className="column half" key={index}><div className="artistbox"><img src={logos}/><h4><a href="/kyuss">{name}</a></h4></div></div>;
-    })}
-    </div>
+      <div>
+      {name.map(function(name, index){
+        return <div className="column half" key={index}><div className="artistbox"><img src={logos}/><h4><a href="/kyuss">{name}</a></h4></div></div>;
+      })}
+      </div>
 
-    ); */
+      ); */
+    }
   }
-}
 
-export default SearchForm;
+  export default SearchForm;
