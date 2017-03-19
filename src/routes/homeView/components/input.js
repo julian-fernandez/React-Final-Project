@@ -5,15 +5,16 @@ class SearchForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      searchTerm: "Kyuss",
+      searchTerm: "noSearchTerm",
       name: [],
       infoStatus: undefined
     };
   };
 
   static defaultProps = {
-    name: 'Kyuss',
+    name: 'noSearchTerm',
   };
+
   componentWillMount() {
     this.getInputInfo();
   };
@@ -57,6 +58,7 @@ class SearchForm extends React.Component {
       }, 300);
       return response;
     })
+
     .then( function(response) {
       let bandlist = [];
       for (var i = 0; i < response.artists.items.length; i++) {

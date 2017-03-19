@@ -8,8 +8,8 @@ class HomeView extends Component {
 		return (
 			<article className="home-view">
 			<h4>Welcome to</h4>
-			<h1>Spotisearch</h1>
-			<SearchForm ref='foo'/>
+			<h1 id="spotySearchTitle">Spotisearch</h1>
+			<SearchForm/>
 			</article>
 			);
 	}
