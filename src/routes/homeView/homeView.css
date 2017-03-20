@@ -1,6 +1,8 @@
 article.home-view{
 	max-width:1200px;
 	margin: 0 auto;
+	margin-top:50px;
+	padding:10px;
 }
 
 .searchBoxArtist{

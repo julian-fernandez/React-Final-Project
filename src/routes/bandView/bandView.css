@@ -1,7 +1,3 @@
-article.home-view{
-	max-width:1200px;
-	margin: 0 auto;
-}
 
 .band-image{
 	display:inline;
@@ -18,4 +14,31 @@ article.home-view{
 
 .band-info p{
 	font-size:18px;
+}
+
+
+@media screen and (max-width:768px){
+	.band-view{
+		text-align:center;
+	}
+	.band-image{
+		max-width:80%;
+		margin:0;
+	}
+	.band-header p{
+		margin-bottom:15px;
+	}
+	.artistbox{
+		text-align: center;
+	}
+	.artistbox img{
+		margin-right:0 !important;
+	}
+	.boxinfo {
+		display: block !important;
+		max-width: 100% !important;
+		vertical-align: top;
+		line-height: 32px;
+		margin-top: 5px;
+	}
 }
