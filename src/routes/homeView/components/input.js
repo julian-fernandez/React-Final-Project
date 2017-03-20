@@ -5,6 +5,7 @@ class SearchForm extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.ip='localhost';
         this.state = {
             searchTerm: "noSearchTerm",
             name: [],
@@ -25,7 +26,9 @@ class SearchForm extends React.Component {
         let searchterm = this.input.value;
         this.getInputInfo(searchterm);
         localStorage.setItem("searchinput", searchterm);
-        window.location.href = 'http://localhost:3000/artists';
+        let ip = require("ip");
+        this.ip=ip.address();
+        window.location.href = 'http://'+this.ip+':3000/artists';
     };
 
     getData() {
@@ -39,27 +42,7 @@ class SearchForm extends React.Component {
         main.setState({
             infoStatus: 'loading'
         });
-      }, 300);
-      return response;
-    })
-
-    .then( function(response) {
-      let bandlist = [];
-      for (var i = 0; i < response.artists.items.length; i++) {
-        var counter = response.artists.items[i].name;
-        bandlist.push(counter);
-      }
-      console.log("pushea3");
-      main.setState({
-        name: bandlist
-      });
-    })
-    .catch( function(response) {
-     main.setState({
-      infoStatus: 'error'
-    });
-   })
-  };
+    }
 
   render() {
     const { 
