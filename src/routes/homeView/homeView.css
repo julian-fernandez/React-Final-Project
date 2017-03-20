@@ -18,7 +18,6 @@ article.home-view{
 	padding-left: 20px;
 	font-size: 22px;
 	margin-top:50px;
-	background-image:url(components/lupachica.jpg) no-repeat;
 }
 
 .searchBoxArtist:focus{
@@ -27,4 +26,3 @@ article.home-view{
 .inputArtist{
 	margin-top: 50px;
 }
-
