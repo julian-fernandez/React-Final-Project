@@ -1,0 +1,15 @@
+.full-body header{
+	text-align:center;
+}
+
+header .inputArtist{
+	width:40%;
+	margin-top:0;
+	position:absolute;
+	right:0;
+	top:30px;
+}
+
+header .searchBoxArtist{
+	margin-top:0;
+}

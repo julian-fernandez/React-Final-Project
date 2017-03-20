@@ -88,13 +88,13 @@ class SearchForm extends React.Component {
   }
   return (
     <div className="inputArtist">
-    <h4> Search your favorite songs over Spotify, just enter an artist's name in the following search box and enjoy! </h4>
+    
     <form onSubmit={this.handleSubmit}>
     <input type="text" className="searchBoxArtist" placeholder="Type the name of your favorite artist" ref={(input) => this.input = input} />
     </form>
     </div>
     );
-}
+  }
 }
 
 export default SearchForm;
