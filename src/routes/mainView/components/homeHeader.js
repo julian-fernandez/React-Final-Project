@@ -7,10 +7,7 @@ import SearchForm from '../../homeView/components/input.js';
 
 class HomeHeader extends Component {
 
-	render() {
-
-
-
+	render(){
 		return (
 			<header className="main-view__header">
 			<a href="/"><img src={logo} className="main-view__logo" alt="logo" /></a>

@@ -50,13 +50,24 @@ class SearchForm extends React.Component {
    if (infoStatus == 'loaded') {
     console.log("LARGO: " + this.state.name.length);
   }
-  return (
-    <div className="inputArtist">
-    <form onSubmit={this.handleSubmit}>
-    <input type="text" className="searchBoxArtist" placeholder="Type the name of your favorite artist" ref={(input) => this.input = input} />
-    </form>
-    </div>
+  if(!this.props.activado){       // esta funcionalidad es para que en el home se muestre searchBoxArtist, y en otras pantallas devuelve las 2 pero oculta 1, y en la parte mobile no la oculta.
+    return (
+        <div  className="inputArtist">
+        <form onSubmit={this.handleSubmit}>
+        <input type="text" className="searchBoxArtist" placeholder="Type the name of your favorite artist" ref={(input) => this.input = input} />
+        </form>
+        </div>
     );
+  }
+  else{
+    return (
+        <div  className="inputArtist">
+        <form onSubmit={this.handleSubmit}>
+        <input type="text" className="searchBoxArtistOffMobile" placeholder="Type the name of your favorite artist" ref={(input) => this.input = input} />
+        </form>
+        </div>
+    );
+  }
   }
 }
 

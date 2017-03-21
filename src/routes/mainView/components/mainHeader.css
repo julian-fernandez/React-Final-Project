@@ -13,3 +13,7 @@ header .inputArtist{
 header .searchBoxArtist{
 	margin-top:0;
 }
+
+header .searchBoxArtistOffMobile{
+	margin-top:0;
+}
