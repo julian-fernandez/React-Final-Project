@@ -5,7 +5,6 @@ class SearchForm extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.ip='localhost';
         this.state = {
             searchTerm: "noSearchTerm",
             name: [],
@@ -26,9 +25,7 @@ class SearchForm extends React.Component {
         let searchterm = this.input.value;
         this.getInputInfo(searchterm);
         localStorage.setItem("searchinput", searchterm);
-        let ip = require("ip");
-        this.ip=ip.address();
-        window.location.href = 'http://'+this.ip+':3000/artists';
+        window.location.href = '/artists';
     };
 
     getData() {
@@ -55,7 +52,6 @@ class SearchForm extends React.Component {
   }
   return (
     <div className="inputArtist">
-    
     <form onSubmit={this.handleSubmit}>
     <input type="text" className="searchBoxArtist" placeholder="Type the name of your favorite artist" ref={(input) => this.input = input} />
     </form>
