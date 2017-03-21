@@ -12,7 +12,6 @@ class HomeView extends Component {
 			<h4>Welcome to</h4>
 			<h1 id="spotySearchTitle">Spotisearch</h1>
 			<h4> Search your favorite songs over Spotify, just enter an artist's name in the following search box and enjoy! </h4>
-
 			<SearchForm/>
 			</article>
 			</div>

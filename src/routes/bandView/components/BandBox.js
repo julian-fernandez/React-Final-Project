@@ -149,7 +149,7 @@ class BandBox extends React.Component {
      <p>{genre}</p>
      </div>
      </div>
-     <span> Home > <a href="/artists">Artists</a> > {name} </span>
+     <span><a href="/"> Home ></a> <a href="/artists">Artists</a> > {name} </span>
      <hr/>
      {items}
      </div>

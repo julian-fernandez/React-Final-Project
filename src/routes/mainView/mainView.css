@@ -11,3 +11,24 @@
 	padding: 20px;
 	color: white;
 }
+
+.main-view__lupa{
+	height: 50px;
+	float: right;
+	display: none;  /* cambiar por block para testear en la pc tambien ir a homeViewCss y ver indicacion*/
+}
+
+
+@media only screen and (max-width: 768px) {
+
+	.main-view__logo {
+		height: 25px;
+	}
+
+	.main-view__lupa{
+		height: 50px;
+		float: right;
+		display: block;
+		margin-top: -10px;
+	}  
+}

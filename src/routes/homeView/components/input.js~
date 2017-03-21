@@ -1,0 +1,63 @@
+import React, { Component } from 'react';
+
+class SearchForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+      artistList: [];
+  };
+
+
+  handleSubmit(event) {
+    event.preventDefault();
+    let searchterm = this.input.value;
+    this.getArtist(searchterm);
+window.location.href = 'http://localhost:3000/artists'
+  } 
+  getArtist(name){
+    const main = this;
+    let query = null;
+
+      query = name;
+      console.log(query);
+    
+    fetch(`https://api.spotify.com/v1/search?type=artist&q=artist:${query}`)
+    .then( function(response) {
+      return response.json();
+    })
+    .then( function(response) {
+      console.log("Made it!!!");
+      for (var i = 0; i < response.artists.items.length; i++) {
+        var counter = response.artists.items[i];
+      }
+ 
+      let bandlist = [];
+      for (var i = 0; i < response.artists.items.length; i++) {
+        var counter = response.artists.items[i].name;
+        bandlist.push(counter);
+      }
+        name: bandlist
+ console.log(bandlist);
+
+    })
+    .catch( function(response) {
+     console.log('error');
+   })
+  };
+
+  render() { 
+  return (
+    <div>
+    <form onSubmit={this.handleSubmit}>
+    <label>
+    Name:
+    <input type="text" ref={(input) => this.input = input} />
+    </label>
+    <input type="submit" value="Submit"/>
+    </form>
+    </div>
+    );
+}
+}
+
+export default SearchForm;

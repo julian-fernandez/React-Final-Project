@@ -20,9 +20,75 @@ article.home-view{
 	margin-top:50px;
 }
 
+.searchBoxArtistOffMobile{
+	background-color: #333;
+	border: none;
+	width: 80%;
+	margin: auto;
+	display: block;      /* cambiar por none para testear en la pc tambien ir a mainViewCss y ver indicacion*/
+	border: 1px solid #aaa;
+	border-radius: 50px;
+	color: white;
+	padding: 5px;
+	padding-left: 20px;
+	font-size: 22px;
+	margin-top:50px;
+}
+
 .searchBoxArtist:focus{
+	outline: none;
+}
+.searchBoxArtistOffMobile:focus{
 	outline: none;
 }
 .inputArtist{
 	margin-top: 50px;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+	article.home-view{
+	max-width:1200px;
+	margin: 0 auto;
+	margin-top:50px;
+	padding:10px;
+}
+
+.searchBoxArtist{
+	background-color: #333;
+	border: none;
+	width: auto;
+	margin: auto;
+	display: block;
+	border: 1px solid #aaa;
+	border-radius: 50px;
+	color: white;
+	padding: 5px;
+	padding-left: 20px;
+	font-size: 22px;
+	margin-top:50px;
+	}
+
+.searchBoxArtistOffMobile{
+	background-color: #333;
+	border: none;
+	width: auto;
+	margin: auto;
+	display: none;
+	border: 1px solid #aaa;
+	border-radius: 50px;
+	color: white;
+	padding: 5px;
+	padding-left: 20px;
+	font-size: 22px;
+	margin-top:50px;
+	}
+
+	
+.searchBoxArtist::-webkit-input-placeholder {
+    font-size: 15px;
+    line-height: 3;
+	}
+
 }
