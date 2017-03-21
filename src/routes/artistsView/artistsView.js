@@ -12,7 +12,7 @@ class ArtistsView extends Component {
 			<h4>Search results</h4>
 			<h1>You searched for: <strong>{test}</strong></h1>
 			<br/>
-			<span> Home > Artists </span>
+			<span><a href="/"> Home > </a> <a href="/artists"> Artists </a> </span>
 			<hr/>
 			<RenderBox/>
 			</article>

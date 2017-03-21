@@ -1,0 +1,10 @@
+import React, { Component } from 'react';
+
+class artistsView extends Component{
+	render(){
+	return(
+console.log("llegue"),
+		<h1> you search for: </h1>
+	);
+	}
+}
